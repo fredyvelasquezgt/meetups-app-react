@@ -18,9 +18,11 @@ const DUMMY_DATA = [
         'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
     },
   ];
-  
+
 function AllMeetupsPage() {
-    return <div>AllMeetupsPage</div>
+    return <section>
+        <h1>All Meetups</h1>
+    </section>
 }
 
 export default AllMeetupsPage;

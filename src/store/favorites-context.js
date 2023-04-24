@@ -5,8 +5,29 @@ const FavoritesContext = createContext({
     totalFavorites: 0
 });
 
+
+
 function FavoritesContextProvider(props) {
+
     const [userFavorites, setUserFavorites] = useState([])
+
+    function addFavoritesHandler(favoriteMeetup) {
+        setUserFavorites((prevUserFavorites) => {
+            return prevUserFavorites.concat(favoriteMeetup)
+        })
+    }
+    
+    function removeFavoritesHandler(meetupId) {
+        setUserFavorites(prevUserFavorites => {
+            return prevUserFavorites.filter(meetup => meetup.id !== meetupId);
+        })
+    }
+    
+    function itemsFavoritesHandler(meetupId) {
+        return userFavorites.some(meetup => meetup.id === meetupId);
+    }
+    
+
     const context = {
         favorites: userFavorites,
         totalFavorites: userFavorites.length

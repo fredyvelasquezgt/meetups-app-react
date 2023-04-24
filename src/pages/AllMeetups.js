@@ -15,8 +15,18 @@ function AllMeetupsPage() {
       ).then(response => {
         return response.json();
       }).then(data => {
-        setIsLoading(false)
-        setLoadedMeetups(data)
+        const meetups = []
+
+        for (const key in data) {
+          const meetup = {
+            id: key,
+            ...data[key]
+          };
+
+          meetups.push(meetup)
+        }
+         setIsLoading(false)
+        setLoadedMeetups(meetups)
       });
   }, []);
 

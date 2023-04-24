@@ -1,6 +1,6 @@
 import {createContext, useState} from 'react';
 
-const FavoritesContext = createContext({
+export const FavoritesContext = createContext({
     favorites: [],
     totalFavorites: 0,
     addFavorite: (favoriteMeetup) => {},
@@ -11,7 +11,7 @@ const FavoritesContext = createContext({
 
 
 
-function FavoritesContextProvider(props) {
+export function FavoritesContextProvider(props) {
 
     const [userFavorites, setUserFavorites] = useState([])
 
@@ -43,3 +43,5 @@ function FavoritesContextProvider(props) {
         {props.children}
     </FavoritesContext.Provider>
 }
+
+export default FavoritesContext;

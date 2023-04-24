@@ -27,10 +27,12 @@ function FavoritesContextProvider(props) {
         return userFavorites.some(meetup => meetup.id === meetupId);
     }
     
-
     const context = {
         favorites: userFavorites,
-        totalFavorites: userFavorites.length
+        totalFavorites: userFavorites.length,
+        addFavorite: addFavoritesHandler,
+        removeFavorite: removeFavoritesHandler,
+        itemIsFavorite: itemsFavoritesHandler
     };
 
     return <FavoritesContext.Provider value={context} >
